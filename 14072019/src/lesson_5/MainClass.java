@@ -1,17 +1,28 @@
 package lesson_5;
 
+import Lesson_1.Marathon.Main;
+
 public class MainClass {
 
-    static final int size = 10000000;
-    static final int h = size / 2;
-    static float[] arr = new float[size];
+    final int size = 10000000;
+    float[] arr = new float[size];
+    int numberOfThreads;
+    Thread[] threads;
+    float[][] tempArrays;
 
-    public static void main(String[] args) {
-        fillArrayWithOneThread();
-        fillArrayWithTwoThreads();
+    public MainClass(int numberOfThreads) {
+        this.numberOfThreads = numberOfThreads;
+        threads = new Thread[numberOfThreads];
+        tempArrays = new float[numberOfThreads][];
     }
 
-    static public void fillArrayWithOneThread() {
+    public static void main(String[] args) {
+        MainClass mainClass = new MainClass(171);
+        mainClass.fillArrayWithOneThread();
+        mainClass.fillArrayWithFewThreads();
+    }
+
+    public void fillArrayWithOneThread() {
         for (int i = 0; i < size; i++) {
             arr[i] = 1;
         }
@@ -22,33 +33,45 @@ public class MainClass {
         System.out.println("One: " + (System.currentTimeMillis() - startTime));
     }
 
-    static public void fillArrayWithTwoThreads() {
-        for (int i = 0; i < arr.length; i++) {
+    public void fillArrayWithFewThreads() {
+        for (int i = 0; i < size; i++) {
             arr[i] = 1;
         }
+
         long startTime = System.currentTimeMillis();
 
-        float[] tempArr_1 = new float[h];
-        float[] tempArr_2 = new float[h + size % 2];
-        new Thread(() -> {
-            System.arraycopy(arr, 0, tempArr_1, 0, tempArr_1.length);
-            for (int i = 0; i < tempArr_1.length; i++) {
-                tempArr_1[i] = (float) (tempArr_1[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
+        for (int i = 0; i < numberOfThreads; i++) {
+            int iteration = i;
+            threads[i] = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    if (iteration == numberOfThreads - 1 && arr.length % numberOfThreads != 0) {
+                        tempArrays[iteration] = new float[arr.length / numberOfThreads + arr.length % numberOfThreads];
+                    } else {
+                        tempArrays[iteration] = new float[arr.length / numberOfThreads];
+                    }
+                    System.arraycopy(arr, iteration * (arr.length / numberOfThreads),
+                            tempArrays[iteration], 0, tempArrays[iteration].length);
+                    for (int i = 0; i < tempArrays[iteration].length; i++) {
+                        tempArrays[iteration][i] = (float) (tempArrays[iteration][i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
+                    }
+                    System.arraycopy(tempArrays[iteration], 0, arr, tempArrays[0].length * iteration, tempArrays[iteration].length);
+                }
+            });
+        }
+        for (Thread t :
+                threads) {
+            t.start();
+        }
+        for (Thread t :
+                threads) {
+            try {
+                t.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-            System.arraycopy(tempArr_1, 0, arr, 0, tempArr_1.length);
-            System.out.println("Two-1: " + (System.currentTimeMillis() - startTime));
+        }
+        System.out.println(numberOfThreads + " " + (System.currentTimeMillis() - startTime));
 
-        }).start();
-
-        new Thread(() -> {
-            System.arraycopy(arr, h, tempArr_2, 0, tempArr_2.length);
-            for (int i = 0; i < tempArr_2.length; i++) {
-                tempArr_2[i] = (float) (tempArr_2[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
-            }
-            System.arraycopy(tempArr_2, 0, arr, h, tempArr_2.length);
-            System.out.println("Two-2: " + (System.currentTimeMillis() - startTime));
-
-        }).start();
     }
-
 }
