@@ -11,24 +11,17 @@ import javafx.stage.WindowEvent;
 import java.io.IOException;
 
 public class Main extends Application {
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/Lesson_6/Client/sample.fxml"));
-
-    Controller controller =   loader.getController();
+    Controller controller;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = loader.load(getClass().getResource("/Lesson_6/Client/sample.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Lesson_6/Client/sample.fxml"));
+        Parent root = loader.load();
+        controller = loader.getController();
         primaryStage.setTitle("chat 2k19");
         Scene scene = new Scene(root, 350, 370);
         primaryStage.setScene(scene);
         primaryStage.show();
-//        primaryStage.setOnCloseRequest(event -> {
-//            try {
-//                controller.out.writeUTF("/end");
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        });
     }
 
     @Override
