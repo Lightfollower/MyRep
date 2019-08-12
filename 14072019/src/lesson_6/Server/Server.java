@@ -1,13 +1,9 @@
 package lesson_6.Server;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.sql.SQLException;
-import java.util.Scanner;
 import java.util.Vector;
 
 public class Server {
@@ -19,9 +15,7 @@ public class Server {
         Socket socket = null;
 
         try {
-            AuthService.connect();
-//            String test = AuthService.getNickByLoginAndPass("login1", "pass1");
-//            System.out.println(test);
+            DBService.connect();
             server = new ServerSocket(8189);
             System.out.println("Сервер запущен!");
 
@@ -44,25 +38,28 @@ public class Server {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            AuthService.disconnect();
+            DBService.disconnect();
         }
     }
 
-    public void broadcastMsg(String msg) {
-        for (ClientHandler o: clients) {
-            o.sendMsg(msg);
+    public void broadcastMsg(ClientHandler sender, String msg) {
+        for (ClientHandler o : clients) {
+            if (!o.checkBlacklist(sender.getNick()))
+                o.sendMsg(msg);
         }
     }
 
-    public void sendPrivateMsg(String msg, ClientHandler sender, String destination){
+    public void sendPrivateMsg(String msg, ClientHandler sender, String destination) {
         for (ClientHandler o :
                 clients) {
-            if(o.getNick().equals(destination)) {
-                o.sendMsg(msg);
+            if (o.getNick().equals(destination)) {
+                if (!o.checkBlacklist(sender.getNick()))
+                    o.sendMsg("Private message from " + msg);
+                sender.sendMsg(sender.getNick() + ": Private message for " + destination + ": " + msg);
                 return;
             }
         }
-        sender.sendMsg("Nobody is at home");
+        sender.sendMsg("There is no user with this dick");
     }
 
     public void subscribe(ClientHandler client) {

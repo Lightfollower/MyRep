@@ -1,14 +1,10 @@
 package lesson_6.Client;
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
-
-import java.io.IOException;
 
 public class Main extends Application {
     Controller controller;
@@ -26,7 +22,11 @@ public class Main extends Application {
 
     @Override
     public void stop() throws Exception {
-        controller.out.writeUTF("/end");
+        try {
+            controller.out.writeUTF("/end");
+        } catch (Exception e){
+
+        }
         super.stop();
     }
 

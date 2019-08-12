@@ -1,35 +1,27 @@
 package lesson_6.Client;
 
-import javafx.event.ActionEvent;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.geometry.Pos;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 
 public class Controller {
     @FXML
-    TextArea textArea;
+    VBox VboxChat;
 
     @FXML
     TextField textField;
 
     @FXML
     Button btn1;
-
-    Socket socket;
-    DataInputStream in;
-    DataOutputStream out;
 
     @FXML
     HBox bottomPanel;
@@ -42,6 +34,12 @@ public class Controller {
 
     @FXML
     PasswordField passwordFiled;
+
+    String nick;
+
+    Socket socket;
+    DataInputStream in;
+    DataOutputStream out;
 
     private boolean isAuthorized;
 
@@ -71,24 +69,42 @@ public class Controller {
             out = new DataOutputStream(socket.getOutputStream());
 
             new Thread(() -> {
+
                 try {
                     while (true) {
                         String str = in.readUTF();
+                        VBox vBox = new VBox();
+
                         if (str.startsWith("/authok")) {
                             setAuthorized(true);
+                            nick = str.split(" ")[1];
+                            Label label = new Label("you're: " + nick + "\n");
+                            vBox.getChildren().add(label);
+                            Platform.runLater(() -> VboxChat.getChildren().add(vBox));
                             break;
                         } else {
-                            textArea.appendText(str + "\n");
+                            Label label = new Label(str + "\n");
+                            vBox.getChildren().add(label);
+                            Platform.runLater(() -> VboxChat.getChildren().add(vBox));
                         }
                     }
 
                     while (true) {
                         String str = in.readUTF();
-                        if(str.equals("/serverClosed")) {
+                        if (str.equals("/serverClosed")) {
                             setAuthorized(false);
                             break;
                         }
-                        textArea.appendText(str + "\n");
+                        Label label = new Label(str + "\n");
+                        VBox vBox = new VBox();
+                        if (str.startsWith(nick)) {
+                            vBox.setAlignment(Pos.TOP_RIGHT);
+                        } else {
+                            vBox.setAlignment(Pos.TOP_LEFT);
+                        }
+                        vBox.getChildren().add(label);
+                        Platform.runLater(() -> VboxChat.getChildren().add(vBox));
+
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
