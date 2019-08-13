@@ -1,6 +1,8 @@
 package Game.heroes;
 
 import Game.Game;
+import javafx.application.Platform;
+import javafx.scene.control.Label;
 
 import java.util.List;
 import java.util.Random;
@@ -18,12 +20,12 @@ public class Warrior extends Hero {
     void hit(Hero hero) {
         if (health < 0) {
             System.out.println("Герой погиб и бить не может!");
-            game.application.log.appendText("Герой погиб и бить не может!\n");
+            game.controller.log.getChildren().add(new Label("Герой погиб и бить не может!\n"));
         } else {
             hero.causeDamage(damage);
         }
         System.out.println(this.name + " нанес урон " + hero.name);
-        game.application.log.appendText(this.name + " нанес урон " + hero.name + "\n");
+        Platform.runLater(() -> game.controller.log.getChildren().add(new Label(this.name + " нанес урон " + hero.name + "\n")));
     }
 
     @Override
@@ -43,12 +45,7 @@ public class Warrior extends Hero {
                 hit(opponent);
             }
         }
-        if(health <= 0) {
-            System.out.println(this.name + " dead");
-            game.application.log.appendText(this.name + " dead" + "\n");
-        } else {
-            System.out.println(this.name + " stayed alive");
-        }
+        showState();
     }
 
 }

@@ -1,18 +1,14 @@
 package Game;
 
-import Game.heroes.Assassin;
-import Game.heroes.Doctor;
 import Game.heroes.Hero;
-import Game.heroes.Warrior;
-import Game.sample.Main;
-import javafx.application.Application;
-
+import Game.sample.Controller;
+import javafx.application.Platform;
+import javafx.scene.control.Label;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 public class Game extends Thread {
-    public Main application;
+    public Controller controller;
     public boolean win = false;
     public boolean isFinished = false;
     public List<Hero> team1 = new ArrayList<>();/*{new Warrior(this, 250, "Тигрил", 50, 0)
@@ -23,12 +19,11 @@ public class Game extends Thread {
             , new Assassin(this, 160, "Джинкс", 90, 0)
             , new Doctor(this, 110, "Зои", 0, 80)};*/
 
-    public Game(Main application) {
-        this.application = application;
+    public Game(Controller controller) {
+        this.controller = controller;
     }
 
     public void startGame() {
-//        gameStarted = true;
         start();
         for (Hero h : team1) {
             h.start();
@@ -39,9 +34,9 @@ public class Game extends Thread {
     }
 
 
-    public boolean isWin() {
-        return win;
-    }
+//    public boolean isWin() {
+//        return win;
+//    }
 
     public void addHeroInTeam_1(Hero hero) {
         team1.add(hero);
@@ -59,7 +54,8 @@ public class Game extends Thread {
     public void run() {
         while (true) {
             win = true;
-            /*synchronized (team1)*/ {
+            /*synchronized (team1)*/
+            {
                 for (Hero h :
                         team1) {
 
@@ -71,11 +67,11 @@ public class Game extends Thread {
             }
             if (win) {
                 System.out.println("team 2 win");
-                application.log.appendText("team 2 win\n");
+                Platform.runLater(() -> controller.log.getChildren().add(new Label("team 2 win\n")));
                 break;
             }
             win = true;
-            /*synchronized (team2)*/ {
+            {
                 for (Hero h :
                         team2) {
 
@@ -87,7 +83,7 @@ public class Game extends Thread {
             }
             if (win) {
                 System.out.println("team 1 win");
-                application.log.appendText("team 1 win\n");
+                Platform.runLater(() -> controller.log.getChildren().add(new Label("team 1 win\n")));
                 break;
             }
         }
