@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+
     Controller controller;
 
     @Override
@@ -16,9 +17,11 @@ public class Main extends Application {
         controller = loader.getController();
         primaryStage.setTitle("chat 2k19");
         Scene scene = new Scene(root, 350, 370);
+
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
 
     @Override
     public void stop() throws Exception {
@@ -32,5 +35,6 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
+
     }
 }

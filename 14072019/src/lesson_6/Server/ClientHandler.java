@@ -4,17 +4,21 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class ClientHandler {
     private Socket socket;
     private DataOutputStream out;
     private DataInputStream in;
     private Server server;
+
     private List<String> blackList;
     private String nick;
+
 
     public ClientHandler(Server server, Socket socket) {
         try {
@@ -26,6 +30,7 @@ public class ClientHandler {
             new Thread(() -> {
                 try {
                     while (true) {
+
 
                         String str = in.readUTF();
                         if (str.startsWith("/auth")) {
@@ -56,10 +61,12 @@ public class ClientHandler {
                     }
 
                     while (true) {
+
                         String str = in.readUTF();
                         System.out.println("Client " + str);
                         if (str.equals("/end")) {
                             out.writeUTF("/serverClosed");
+
                             break;
                         }
                         if (str.startsWith("/w")) {
@@ -87,6 +94,7 @@ public class ClientHandler {
                     e.printStackTrace();
                 } catch (SQLException e) {
                     e.printStackTrace();
+
                 } finally {
                     try {
                         in.close();
@@ -103,8 +111,10 @@ public class ClientHandler {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+
                     server.unsubscribe(this);
                     System.out.println(server.getClients());
+
 
                 }
             }).start();
@@ -122,11 +132,13 @@ public class ClientHandler {
         }
     }
 
+
     public boolean checkBlacklist(String nick){
         return blackList.contains(nick);
     }
 
     public String getNick() {
         return nick;
+
     }
 }

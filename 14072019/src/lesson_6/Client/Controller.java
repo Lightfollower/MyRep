@@ -1,5 +1,6 @@
 package lesson_6.Client;
 
+
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
@@ -7,15 +8,18 @@ import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
 
+
 public class Controller {
     @FXML
     VBox VboxChat;
+
 
     @FXML
     TextField textField;
@@ -41,6 +45,7 @@ public class Controller {
     DataInputStream in;
     DataOutputStream out;
 
+
     private boolean isAuthorized;
 
     final String IP_ADRESS = "localhost";
@@ -63,12 +68,14 @@ public class Controller {
     }
 
     public void connect() {
+
         try {
             socket = new Socket(IP_ADRESS, PORT);
             in = new DataInputStream(socket.getInputStream());
             out = new DataOutputStream(socket.getOutputStream());
 
             new Thread(() -> {
+
 
                 try {
                     while (true) {
@@ -105,6 +112,7 @@ public class Controller {
                         vBox.getChildren().add(label);
                         Platform.runLater(() -> VboxChat.getChildren().add(vBox));
 
+
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -131,6 +139,7 @@ public class Controller {
             e.printStackTrace();
         }
     }
+
 
     public void tryToAuth() {
         if (socket == null || socket.isClosed()) {
