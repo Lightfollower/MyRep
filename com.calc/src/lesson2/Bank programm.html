@@ -1,0 +1,14 @@
+<meta charset="UTF-8">
+<script>
+    var rate;
+    var amount;
+    var term = 5;
+
+
+    rate = +prompt("Под какой процент будет вклад?")/100+1; //Другого способа прибавлять проценты не знаю.
+    amount = +prompt("Какую сумму вкладываете?");
+    for (i = 0; i<term; i++){
+        amount = amount * rate;
+        alert("На " + (i + 1) + "-й год ваш счёт будет состовлять: " + amount.toFixed(2));
+    }
+</script>

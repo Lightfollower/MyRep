@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact name="unnamed2">
+    <output-path>$PROJECT_DIR$/out/artifacts/unnamed2</output-path>
+    <root id="root">
+      <element id="archive" name="archive.jar">
+        <element id="module-output" name="com.DependenciesIDE" />
+        <element id="extracted-dir" path="C:/Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.12.jar" path-in-jar="/" />
+      </element>
+    </root>
+  </artifact>
+</component>

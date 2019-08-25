@@ -1,0 +1,28 @@
+#textArea .content {
+    -fx-background-image: url(2c994fcbd94049e0d78758d9f3a9a07a.png);
+    -fx-background-size: 100% 100%;
+}
+
+#textArea {
+    -fx-border-color: blue;
+    -fx-background-color: blue;
+    -fx-font-family: "Book Antiqua";
+    -fx-font-size: 16;
+    -fx-text-fill:  #eeee00;
+
+
+}
+
+#textField {
+    -fx-background-color: lightblue;
+    -fx-font-family: "Book Antiqua";
+
+
+}
+
+#btn1 {
+    -fx-background-color: skyblue;
+    -fx-border-color: skyblue;
+    -fx-font-family: Algerian;
+
+}

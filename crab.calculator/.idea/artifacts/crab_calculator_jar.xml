@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="crab.calculator:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/crab_calculator_jar</output-path>
+    <root id="archive" name="crab.calculator.jar">
+      <element id="module-output" name="crab.calculator" />
+    </root>
+  </artifact>
+</component>

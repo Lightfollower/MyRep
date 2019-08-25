@@ -1,0 +1,58 @@
+<meta charset="UTF-8">
+<script>
+
+    var text_1 = "Put pincers on the keyboard.";
+    var text_2 = "Поставьте мизинец левой руки на букву Ф, безымянный палец — на Ы, средний — на В, указательный — на А. Мизинец правой руки на букву Ж, безымянный палец — на Д, средний — на Л, указательный — на О. Запомните расположение пальцев. Повторяйте за мной";
+    var text_3 = "Поставьте мизинец левой руки на букву Ф, безымянный палец — на Ы, средний — на В, указательный — на А. Мизинец правой руки на букву Ж, безымянный палец — на Д, средний -— на Л, указательный — на О. Запомните расположение пальцев";
+
+    var level_1Greeting = "Дратути.";
+    var level_2Greeting = "you have reached level two";
+    var level_3Greeting = "you have reached level three";
+
+    var level_1 = [["ф", "а"], text_1, 10, level_1Greeting];
+    var level_2 = [["ы", "в"], text_2, 10, level_2Greeting];
+    var level_3 = [["о", "ж"], text_3, 10, level_3Greeting];
+
+    var levels = [level_1, level_2, level_3];
+
+    //Названия полей объектов Level, чтоб не путаться.
+    var letters = 0;
+    var instructions = 1;
+    var length = 2
+    var greeting = 3;
+
+
+
+    function blindCrayfishWorkout(userLevel) {
+        alert(userLevel[greeting]);
+        while (true) {
+            alert(userLevel[instructions]);
+            var text = generateText(userLevel[letters],userLevel[length]);
+            var userText = prompt(text);
+            if (userText == text) {
+                alert("Correct.");
+                break;
+            } else
+                alert("Incorrect, try again.");
+        }
+    }
+
+    function generateText(letters, length) {
+        var text = "";
+        for (i = 0; i < length; i++) {
+            var n = getRandomNumber(letters.length - 1);
+            text += letters[n];
+        }
+        return text;
+    }
+
+    function getRandomNumber(max) {
+        return Math.round(Math.random() * max);
+    }
+
+
+    for (y = 0; y < levels.length; y++){
+        blindCrayfishWorkout(levels[y]);
+    }
+
+</script>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="whiskey:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/whiskey_jar</output-path>
+    <root id="archive" name="whiskey.jar">
+      <element id="module-output" name="whiskey" />
+    </root>
+  </artifact>
+</component>

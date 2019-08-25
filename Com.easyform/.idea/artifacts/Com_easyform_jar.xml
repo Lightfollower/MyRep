@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Com.easyform:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Com_easyform_jar</output-path>
+    <root id="archive" name="Com.easyform.jar">
+      <element id="module-output" name="Com.easyform" />
+    </root>
+  </artifact>
+</component>

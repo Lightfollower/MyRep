@@ -1,0 +1,89 @@
+<meta charset="UTF-8">
+<script>
+    var array = [];
+    array = createArray(prompt("Длинна массива"));
+    alert("Ваш массив: " + array);
+    var arraySum = summarizeArray(array);
+    alert("Сумма вашего массива: " + arraySum);
+
+    array.length = prompt("В массиве какой длинны будем искать максимальное число?");
+    fillArray();
+    alert(findMax(array));
+
+    array.length = prompt("В массиве какой длинны будем искать мимиальное число?");
+    fillArray();
+    alert(findMin(array));
+
+    array.length = prompt("В массиве какой длинны будем искать чечётные числа?");
+    fillArray();
+    alert(findEven(array));
+
+    function createArray(n) {
+        var arr = [];
+        arr.length = n;
+        for (i = 0; i < n; i++) {
+            arr[i] = i + 1;
+        }
+        return arr;
+    }
+
+    function summarizeArray(arrayToSummarize) {
+
+        /*var sum = 0;
+
+        for (i = 0; i < arrayToSummarize.length; i++) {
+            sum = sum + arrayToSummarize[i];
+        }*/
+        //Не понял я, где и зачем должна быть рекурсия в этом задании. Так что, пусть она будет тут.
+
+        return recursion(arrayToSummarize, 0); // 0- это сумма членов массива, до начала подсчёта.
+    }
+
+    function recursion(arr, sum) {
+        a = sum;
+        if (arr.length > 0) {
+            a += arr[arr.length-1];
+            arr.length--;
+            recursion(arr, a);
+        }
+        return a;
+    }
+
+    function findMax(arr) {
+        var max = arr[0];
+        for (i = 1; i < arr.length; i++) {
+            if (arr[i] > max)
+                max = arr[i];
+        }
+        return max;
+    }
+
+    function findMin(arr) {
+        var min = arr[0];
+        for (i = 1; i < arr.length; i++) {
+            if (arr[i] < min)
+                min = arr[i];
+        }
+        return min;
+    }
+
+    function findEven() {
+        var evenMembers = [];
+        var a = 0;
+        for (i = 0; i < array.length; i++) {
+            if (array[i] % 2 == 0) {
+                evenMembers.push(array[i]);
+                a++
+            }
+        }
+
+        alert("Количество чётных чисел: " + a);
+        return evenMembers;
+    }
+
+    function fillArray() {
+        for (i = 0; i < array.length; i++) {
+            array[i] = parseInt(prompt("Введите число"));
+        }
+    }
+</script>
