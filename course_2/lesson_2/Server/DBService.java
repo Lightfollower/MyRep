@@ -42,8 +42,10 @@ public class DBService {
     public static void changeNick(String newNick, String userNick) throws SQLException{
         String sql = String.format("UPDATE main SET nickname = '%s' WHERE nickname = '%s'" ,newNick, userNick);
         String sql2 = String.format("UPDATE Black_list SET User_ignored = '%s' WHERE User_ignored = '%s'" ,newNick, userNick);
+        String sql3 = String.format("UPDATE Black_list SET Nick = '%s' WHERE Nick = '%s'" ,newNick, userNick);
         stmt.executeUpdate(sql);
         stmt.executeUpdate(sql2);
+        stmt.executeUpdate(sql3);
     }
 
     public static void disconnect() {
