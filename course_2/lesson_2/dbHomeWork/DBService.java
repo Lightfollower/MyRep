@@ -49,4 +49,12 @@ public class DBService {
         qry = String.format("SELECT title, cost FROM goods WHERE cost BETWEEN %s AND %s", fromPrice, toPrice);
         return stmt.executeQuery(qry);
     }
+
+    public static void closeConnection() {
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

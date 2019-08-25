@@ -27,6 +27,7 @@ public class Console extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
         primaryStage.setOnCloseRequest(event -> {
+            DBService.closeConnection();
             Platform.exit();
             System.exit(0);
         });
