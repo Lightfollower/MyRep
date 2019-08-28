@@ -1,18 +1,13 @@
 package lesson_2.Client;
 
-import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import lesson_2.Server.DBService;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.Socket;
 
 
@@ -42,11 +37,17 @@ public class Controller {
     @FXML
     PasswordField passwordFiled;
 
-    String nick;
+    private String nick;
 
     Socket socket;
-    DataInputStream in;
+    private DataInputStream in;
     DataOutputStream out;
+
+    private String historyFileName = "history.txt";
+    private FileWriter fileWriter;
+    private BufferedWriter bufferedWriter;
+    private FileReader fileReader;
+    private BufferedReader bufferedReader;
 
     private boolean isAuthorized;
 
@@ -71,6 +72,14 @@ public class Controller {
 
     public void connect() {
         try {
+            fileWriter = new FileWriter(historyFileName, true);
+            bufferedWriter = new BufferedWriter(fileWriter);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Something wrong with your file.");
+        }
+        try {
             socket = new Socket(IP_ADRESS, PORT);
             in = new DataInputStream(socket.getInputStream());
             out = new DataOutputStream(socket.getOutputStream());
@@ -84,6 +93,14 @@ public class Controller {
                             setAuthorized(true);
                             nick = str.split(" ")[1];
                             updateChatTextArea("you're: " + nick + "\n");
+                            fileReader = new FileReader(historyFileName);
+                            bufferedReader = new BufferedReader(fileReader);
+                            for (int i = 0; i < 100; i++) {
+                                if(bufferedReader.ready())
+                                updateChatTextArea(bufferedReader.readLine());
+                            }
+                            bufferedReader.close();
+                            fileReader.close();
                             break;
                         } else {
                             updateChatTextArea(str + "\n");
@@ -107,12 +124,19 @@ public class Controller {
                             continue;
                         }
                         updateChatTextArea(str + "\n");
+                        bufferedWriter.write(str + "\r\n");
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
                 } finally {
                     try {
                         socket.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    try {
+                        fileWriter.close();
+                        bufferedWriter.close();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -167,6 +191,11 @@ public class Controller {
         }
         vBox.getChildren().add(label);
         Platform.runLater(() -> VboxChat.getChildren().add(vBox));
+    }
+
+    public void closeOutput() throws IOException{
+        bufferedWriter.close();
+        fileWriter.close();
     }
 
 //    public void tryToReg() {

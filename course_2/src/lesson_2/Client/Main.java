@@ -25,6 +25,7 @@ public class Main extends Application {
             if(controller.socket != null && !controller.socket.isClosed()) {
                 try {
                     controller.out.writeUTF("/end");
+                    controller.closeOutput();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
