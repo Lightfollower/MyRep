@@ -22,11 +22,9 @@ public class ClientHandler {
             this.server = server;
             this.in = new DataInputStream(socket.getInputStream());
             this.out = new DataOutputStream(socket.getOutputStream());
-
-            new Thread(() -> {
+            server.executorService.submit(() -> {
                 try {
                     while (true) {
-
                         String str = in.readUTF();
                         if (str.startsWith("/auth")) {
                             String[] tokens = str.split(" ");
@@ -135,7 +133,8 @@ public class ClientHandler {
                     System.out.println(server.getClients());
 
                 }
-            }).start();
+
+            });
 
         } catch (IOException e) {
             e.printStackTrace();
