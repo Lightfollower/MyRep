@@ -1,19 +1,27 @@
 package lesson_6;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
+import java.util.Arrays;
 
 public class MainClass {
-    private static final Logger LOGGER = LogManager.getLogger(MainClass.class);
 
+    public static int[] lastFourTrimmer (int... ints){
+        int lastIndexOfFour = -1;
+        for (int i = 0; i < ints.length; i++) {
+            if(ints[i] == 4)
+            lastIndexOfFour = i;
+        }
+        if (lastIndexOfFour == -1)
+            throw new RuntimeException("there is nothing left to trim");
+        return Arrays.copyOfRange(ints, lastIndexOfFour + 1, ints.length);
+    }
     public static void main(String[] args) {
-        LOGGER.debug("Debug");
-        LOGGER.info("Info");
-        LOGGER.warn("Warn");
-        LOGGER.error("Error");
-        LOGGER.fatal("Fatal");
-        LOGGER.info("String: {}.", "Hello, World");
+        int[] ints = {1, 3, 2, 3, 6, 3};
+        int[] resultArray = lastFourTrimmer(ints);
+        for (int i :
+                resultArray) {
+            System.out.println(i);
+        }
     }
 
 }
