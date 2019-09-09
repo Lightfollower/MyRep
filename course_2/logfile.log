@@ -1,0 +1,21 @@
+INFO  2019-09-08 12:18:51 [main] lesson_6.MainClass (MainClass.java:12) - Info
+WARN  2019-09-08 12:18:51 [main] lesson_6.MainClass (MainClass.java:13) - Warn
+ERROR 2019-09-08 12:18:51 [main] lesson_6.MainClass (MainClass.java:14) - Error
+FATAL 2019-09-08 12:18:51 [main] lesson_6.MainClass (MainClass.java:15) - Fatal
+INFO  2019-09-08 12:18:51 [main] lesson_6.MainClass (MainClass.java:16) - String: Hello, World.
+INFO  2019-09-08 12:21:10 [main] lesson_6.MainClass (MainClass.java:12) - Info
+WARN  2019-09-08 12:21:10 [main] lesson_6.MainClass (MainClass.java:13) - Warn
+ERROR 2019-09-08 12:21:10 [main] lesson_6.MainClass (MainClass.java:14) - Error
+FATAL 2019-09-08 12:21:10 [main] lesson_6.MainClass (MainClass.java:15) - Fatal
+INFO  2019-09-08 12:21:10 [main] lesson_6.MainClass (MainClass.java:16) - String: Hello, World.
+INFO  2019-09-08 12:45:16 [main] lesson_2.Server.Server (Server.java:29) - Сервер запущен!
+INFO  2019-09-08 12:58:46 [main] lesson_2.Server.Server (Server.java:29) - Сервер запущен!
+INFO  2019-09-08 12:59:02 [main] lesson_2.Server.Server (Server.java:34) - new user: null
+INFO  2019-09-08 12:59:30 [main] lesson_2.Server.Server (Server.java:34) - new user: null
+INFO  2019-09-08 13:26:49 [main] lesson_2.Server.Server (Server.java:29) - Server started!
+INFO  2019-09-08 13:26:52 [main] lesson_2.Server.Server (Server.java:35) - new user connected.
+INFO  2019-09-08 13:26:52 [pool-2-thread-1] lesson_2.Server.Server (Server.java:93) - User Doop subscribed.
+INFO  2019-09-08 13:27:02 [pool-2-thread-1] lesson_2.Server.ClientHandler (ClientHandler.java:70) - Client sent message: dfg
+INFO  2019-09-08 13:27:20 [pool-2-thread-1] lesson_2.Server.ClientHandler (ClientHandler.java:70) - Client sent message: /newNick ODOP
+INFO  2019-09-08 13:27:30 [pool-2-thread-1] lesson_2.Server.ClientHandler (ClientHandler.java:70) - Client sent message: /end
+INFO  2019-09-08 13:27:30 [pool-2-thread-1] lesson_2.Server.Server (Server.java:98) - User ODOP unsubscribed.
