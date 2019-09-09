@@ -23,15 +23,15 @@ public class DBService {
             stmt.execute(qry);
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO goods (prodid, title, cost)" +
                     " VALUES (?, ?, ?)");
-//            connection.setAutoCommit(false);
-            for (int i = 0; i < 10; i++) {
+            connection.setAutoCommit(false);
+            for (int i = 0; i < 1000; i++) {
                 preparedStatement.setInt(1, i);
                 preparedStatement.setString(2, i + "goods");
                 preparedStatement.setFloat(3, i * 10);
                 preparedStatement.addBatch();
             }
             preparedStatement.executeBatch();
-//            connection.setAutoCommit(true);
+            connection.setAutoCommit(true);
         } catch (SQLException e) {
             e.printStackTrace();
         }
