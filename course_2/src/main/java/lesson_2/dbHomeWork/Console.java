@@ -19,7 +19,7 @@ public class Console extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/java/lesson_2/dbHomeWork/sample.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/lesson_2/sample.fxml"));
         Parent root = loader.load();
         controller = loader.getController();
         primaryStage.setTitle("DB Console");
