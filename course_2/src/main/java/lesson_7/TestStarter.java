@@ -2,9 +2,7 @@ package lesson_7;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.TreeMap;
+import java.util.*;
 
 public class TestStarter {
 
@@ -12,7 +10,7 @@ public class TestStarter {
         Method[] methods = testClass.getDeclaredMethods();
         int indexOfBeforeAnnotationMethod = -1;
         int indexOfAfterAnnotationMethod = -1;
-        TreeMap<Integer, ArrayList<Method>> separatedByPriorityMethods = new TreeMap<>(Collections.reverseOrder());
+        List<Method> methodArrayList = new ArrayList<>();
 
         for (int i = 0; i < methods.length; i++) {
             if (methods[i].getAnnotation(BeforeSuite.class) != null) {
@@ -34,35 +32,18 @@ public class TestStarter {
             }
 
             if (methods[i].getAnnotation(Test.class) != null) {
-                if (!separatedByPriorityMethods.containsKey(methods[i].getAnnotation(Test.class).value())) {
-                    separatedByPriorityMethods.put(Integer.valueOf(methods[i].getAnnotation(Test.class).value()), new ArrayList<>());
-                }
-                separatedByPriorityMethods.get(methods[i].getAnnotation(Test.class).value()).add(methods[i]);
+                methodArrayList.add(methods[i]);
             }
         }
         try {
             methods[indexOfBeforeAnnotationMethod].invoke(testClass.getDeclaredConstructor().newInstance());
-//            for (int i = 10; i >= 0; i--) {
-//                if (separatedByPriorityMethods.containsKey(i)) {
-//                    for (Method m :
-//                            separatedByPriorityMethods.get(i)) {
-//                        m.invoke(testClass.getDeclaredConstructor().newInstance());
-//                    }
-//                }
-//            }
-            separatedByPriorityMethods.forEach((k,v) -> v.forEach((q) -> {
-                try {
-                    q.invoke(testClass.getDeclaredConstructor().newInstance());
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                } catch (InvocationTargetException e) {
-                    e.printStackTrace();
-                } catch (InstantiationException e) {
-                    e.printStackTrace();
-                } catch (NoSuchMethodException e) {
-                    e.printStackTrace();
-                }
-            }));
+
+            methodArrayList.sort((o1, o2) -> o2.getAnnotation(Test.class).value() - o1.getAnnotation(Test.class).value());
+            for (Method m :
+                    methodArrayList) {
+                m.invoke(testClass.getDeclaredConstructor().newInstance());
+            }
+
             methods[indexOfAfterAnnotationMethod].invoke(testClass.getDeclaredConstructor().newInstance());
         } catch (IllegalAccessException e) {
             e.printStackTrace();
