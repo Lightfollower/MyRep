@@ -1,4 +1,4 @@
-package java.lesson_3;
+package lesson_3;
 
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -14,7 +14,7 @@ public class TextReader extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/java/lesson_3/sample.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/lesson_3/sample.fxml"));
         Parent root = loader.load();
         controller = loader.getController();
         primaryStage.setTitle("text window");

@@ -33,7 +33,7 @@ public abstract class Hero extends Thread {
 
     synchronized void causeDamage(int damage) {
         if (health < 0) {
-            game.controller.log.getChildren().add(new Label("Герой уже мертвый!\n"));
+            Platform.runLater(() -> game.controller.log.getChildren().add(new Label("Герой уже мертвый!\n")));
         } else {
             health -= damage;
 //            System.out.println(this.name + health);
