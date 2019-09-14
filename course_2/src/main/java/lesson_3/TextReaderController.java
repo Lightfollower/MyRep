@@ -1,4 +1,4 @@
-package java.lesson_3;
+package lesson_3;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -11,59 +11,57 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class TextReaderController implements Initializable {
-
-    public ListView textList;
+    private final int PAGESIZE = 1800;
     @FXML
     VBox textArea;
 
     @FXML
     Button nextPage;
 
-    private BufferedReader bufferedReader;
-    private StringBuilder page;
-    Label label;
+    @FXML
+    TextField pageNumber;
 
+    Label label;
     VBox vBox;
+
+    private int pageN = 1;
+    private RandomAccessFile randomAccessFile;
+    private byte[] bytes;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            bufferedReader = new BufferedReader(new FileReader("F:\\IdeaProjects\\course_2\\src\\lesson_3\\txtfile.txt"));
-            page = new StringBuilder();
+            randomAccessFile = new RandomAccessFile("src/resources/lesson_3/Bigtextfile.txt", "r");
+            bytes = new byte[PAGESIZE];
             updateTextArea(loadPageFromFile());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        finally {
-            try {
-                bufferedReader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
     }
 
     public void updateTextArea(String text) {
+        System.out.println(text);
         label = new Label(text);
         vBox = new VBox();
         Platform.runLater(() -> textArea.getChildren().add(label));
     }
 
     public String loadPageFromFile() throws IOException {
-        for (int i = 0; i < 1800; i++) {
-            page.append((char) bufferedReader.read());
-        }
-        return page.toString();
+        randomAccessFile.seek((pageN - 1)*PAGESIZE );
+        randomAccessFile.read(bytes);
+        return new String(bytes);
     }
 
-    public void nextPage() throws IOException {
+    public void nextPages() throws IOException {
+        pageN = Integer.parseInt(pageNumber.getText());
         updateTextArea(loadPageFromFile());
     }
 
     public void closeStream() throws IOException {
-        bufferedReader.close();
+        randomAccessFile.close();
     }
 
 }
