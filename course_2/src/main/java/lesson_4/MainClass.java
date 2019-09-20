@@ -1,4 +1,6 @@
-package java.lesson_4;
+package lesson_4;
+
+import java.util.concurrent.locks.ReentrantLock;
 
 public class MainClass {
     static int turn = 0;

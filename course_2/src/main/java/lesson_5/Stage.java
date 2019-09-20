@@ -1,4 +1,4 @@
-package java.lesson_5;
+package lesson_5;
 
 
 public abstract class Stage {
