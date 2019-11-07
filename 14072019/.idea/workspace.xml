@@ -7,58 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7b57b61-36cf-4841-9202-e1f30523eb65" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/14072019.iml" beforeDir="false" afterPath="$PROJECT_DIR$/14072019.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/Game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/Game/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/Game/heroes/Assassin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/Game/heroes/Assassin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/Game/heroes/Doctor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/Game/heroes/Doctor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/Game/heroes/Hero.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/Game/heroes/Hero.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/Game/heroes/Warrior.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/Game/heroes/Warrior.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/Game/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/Game/sample/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/Game/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/Game/sample/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/Lesson_1/Marathon/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/Lesson_1/Marathon/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/Lesson_1/Marathon/competitors/Animal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/Lesson_1/Marathon/competitors/Animal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/Lesson_1/Marathon/competitors/Cat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/Lesson_1/Marathon/competitors/Cat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/Lesson_1/Marathon/competitors/Competitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/Lesson_1/Marathon/competitors/Competitor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/Lesson_1/Marathon/competitors/Dog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/Lesson_1/Marathon/competitors/Dog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/Lesson_1/Marathon/competitors/Human.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/Lesson_1/Marathon/competitors/Human.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/Lesson_1/Marathon/competitors/Team.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/Lesson_1/Marathon/competitors/Team.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/Lesson_1/Marathon/obstacles/Course.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/Lesson_1/Marathon/obstacles/Course.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/Lesson_1/Marathon/obstacles/Cross.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/Lesson_1/Marathon/obstacles/Cross.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/Lesson_1/Marathon/obstacles/Obstacle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/Lesson_1/Marathon/obstacles/Obstacle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/Lesson_1/Marathon/obstacles/Wall.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/Lesson_1/Marathon/obstacles/Wall.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/Lesson_1/Marathon/obstacles/Water.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/Lesson_1/Marathon/obstacles/Water.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/Lesson_2/ArraySumCalculator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/Lesson_2/ArraySumCalculator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/Lesson_2/DayOfWeek$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/Lesson_2/DayOfWeek$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/Lesson_2/DayOfWeek.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/Lesson_2/DayOfWeek.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/Lesson_2/MyArrayDataException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/Lesson_2/MyArrayDataException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/Lesson_2/MyArraySizeException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/Lesson_2/MyArraySizeException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/Lesson_3/MainClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/Lesson_3/MainClass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/Lesson_3/PassValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/Lesson_3/PassValidator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/Lesson_3/PhoneBook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/Lesson_3/PhoneBook.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/chat_my_you/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/chat_my_you/sample/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/chat_my_you/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/chat_my_you/sample/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/chat_my_you/sample/t.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/chat_my_you/sample/t.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/lesson3/MainClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/lesson3/MainClass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/lesson3/Zalupa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/lesson3/Zalupa.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/lesson_4/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/lesson_4/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/lesson_4/MyLis.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/lesson_4/MyLis.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/lesson_4/MyWindow$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/lesson_4/MyWindow$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/lesson_4/MyWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/lesson_4/MyWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/lesson_4/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/lesson_4/sample/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/lesson_4/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/lesson_4/sample/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/lesson_5/MainClass$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/lesson_5/MainClass$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/lesson_5/MainClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/lesson_5/MainClass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/lesson_6/Client/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/lesson_6/Client/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/lesson_6/Client/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/lesson_6/Client/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/lesson_6/Server/ClientHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/lesson_6/Server/ClientHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/lesson_6/Server/DBService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/lesson_6/Server/DBService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/lesson_6/Server/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/lesson_6/Server/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/lesson_6/Server/StartServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/lesson_6/Server/StartServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/lesson_6/console/ClientMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/lesson_6/console/ClientMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/14072019/lesson_6/console/ServerMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/14072019/lesson_6/console/ServerMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lesson_6/Client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lesson_6/Client/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Lesson4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lesson4/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../com.reflectionlesson/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../com.reflectionlesson/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../com.reflectionlesson/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../com.reflectionlesson/.idea/workspace.xml" afterDir="false" />
@@ -362,7 +310,7 @@
       <workItem from="1572250391360" duration="492000" />
       <workItem from="1573054232848" duration="12492000" />
       <workItem from="1573129210338" duration="879000" />
-      <workItem from="1573130117644" duration="7689000" />
+      <workItem from="1573130117644" duration="8279000" />
     </task>
     <servers />
   </component>
